@@ -30,6 +30,11 @@ Example: A message "Hello" would be sent as:
 ```
 Where `00 00 00 05` is the big-endian representation of the length (5 bytes) and `48 65 6C 6C 6F` is the ASCII encoding of "Hello".
 
+### **Get Started**
+1. **Build the Solution**: Open the solution in Visual Studio or use `dotnet build` to compile both projects.
+2. **Run the Server**: Start the `Server` project to listen for incoming client connections or use `dotnet run` from the `Server` project directory.
+3. **Run the Client**: Start the `ClientUI` project to connect to the server and begin chatting or use `dotnet run` from the `ClientUI` project directory. <b>You can run multiple instances of the client to simulate multiple users </b>.
+
 ### **Client-Side Architecture (ClientUI Project)**
 
 - **Concurrent I/O with Channels**: Uses a bounded channel to decouple reading from the server and processing/displaying messages to avoid backpressure.
