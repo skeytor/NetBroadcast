@@ -33,7 +33,7 @@ async Task InitializeAsync()
         Console.WriteLine("Connected to the server. You can start chatting!\n");
 
         // Start the task for writing in background because the console's input is blocking
-        Task writeTask = Task.Run(() => WriteStreamBitesAsync(cts.Token));
+        Task writeTask = Task.Run(() => PromptMessageAsync(cts.Token));
 
         // Start the tasks for reading and writing to the stream
         Task readTask = ReadStreamBitesAsync(cts.Token);
@@ -54,7 +54,7 @@ async Task InitializeAsync()
     }
 }
 
-async Task WriteStreamBitesAsync(CancellationToken ct)
+async Task PromptMessageAsync(CancellationToken ct)
 {
     byte[] header = new byte[4];
 
